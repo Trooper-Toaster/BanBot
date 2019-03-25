@@ -18,11 +18,8 @@ exports.run = (bot, message, args) => {
             const Id = foundId
             message.channel.send(`Username | Id: ${person} | ${Id} \n \nProfile Link: https://www.roblox.com/users/${Id}/profile \n \nReason for the ban: ${reason} \n \nProof: ${proof} `)
             });
-  message.channel.send
-  }).catch(err => {
-    console.log(err)
-  });
 
+  }
 
 module.exports.help = {
   
