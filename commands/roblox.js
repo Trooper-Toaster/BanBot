@@ -12,7 +12,7 @@ exports.run = (bot, message, args) => {
      return message.reply("Canceled!");
   }
   let person = collected.first().content;
-  let reason = args[1]
+  let reason = collected.second().content;
    let proof = args[2]
   
   roblox.getIdFromUsername(person).then(foundId => {
