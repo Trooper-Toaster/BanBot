@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
-const invites = {}
-
+const invites = {};
+const fs = require("fs");
 // A pretty useful method to create a delay without blocking the whole script.
 const wait = require('util').promisify(setTimeout);
 
