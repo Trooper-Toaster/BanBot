@@ -1,9 +1,10 @@
 const Discord = require("discord.js");
+const invites = {}
 
-const invites = {};
+// A pretty useful method to create a delay without blocking the whole script.
+const wait = require('util').promisify(setTimeout);
 
 
-  
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 fs.readdir("./commands/", (err, files) => { 
@@ -25,7 +26,14 @@ fs.readdir("./commands/", (err, files) => {
 });
 bot.on('ready', () => {
        
- 
+       wait(1000);
+
+  // Load all invites for all guilds and save them to the cache.
+  bot.guilds.forEach(g => {
+    g.fetchInvites().then(guildInvites => {
+      invites[g.id] = guildInvites;
+    });
+  });
        
   console.log(`${bot.user.username} is online in ${bot.guilds.size} servers`);
   bot.user.setActivity('Admin Abuse', { type: 'WATCHING' });
@@ -53,14 +61,18 @@ bot.on("message", async message=> {
   
 
 
+   
+});
+
+
+
+
 
 
 
 
 
   
-});
-
+  
 
 bot.login(process.env.BOT_TOKEN);
-
