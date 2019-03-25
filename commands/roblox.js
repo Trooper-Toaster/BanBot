@@ -8,7 +8,7 @@ exports.run = (bot, message, args) => {
   message.reply("State the uername of person you would like banned, this will expire in 10 seconds").then(r => r.delete(10000));
   message.channel.awaitMessages(filter, {max: 1, time: 10000}).then(collected => {
     
-  if(collected.content.first().content === "cancel"){
+  if(collected.first().content === "cancel"){
      return message.reply("Canceled!");
   }
   let person = collected.first().content;
