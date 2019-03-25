@@ -7,7 +7,7 @@ exports.run = (bot, message, args) => {
   
   roblox.getIdFromUsername(person).then(foundId => {
             const Id = foundId
-            message.channel.send(Id)
+            message.channel.send(`Hello \n \n ${Id}`)
             });
   message.channel.send
   
