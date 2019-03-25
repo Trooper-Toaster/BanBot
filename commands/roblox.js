@@ -10,6 +10,7 @@ exports.run = (bot, message, args) => {
     
   if(collected.content.first().content === "cancel"){
      return message.reply("Canceled!");
+  }
   let person = collected.first().content;
   let reason = args[1]
    let proof = args[2]
